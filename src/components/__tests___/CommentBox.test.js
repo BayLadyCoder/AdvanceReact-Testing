@@ -17,4 +17,16 @@ describe("CommentBox", () => {
     expect(wrapper.find("textarea").length).toEqual(1);
     expect(wrapper.find("button").length).toEqual(1);
   });
+
+  it("Should have a textarea that users can type in", () => {
+    const textarea = wrapper.find("textarea");
+    // text area starts empty
+    expect(textarea.prop("value")).toEqual("");
+    // simulate change event
+    textarea.simulate("change", { target: { value: "new comment" } });
+    // force component to re-render (update)
+    textarea.update();
+    // textarea value updated to 'new comment'
+    expect(wrapper.find("textarea").prop("value")).toEqual("new comment");
+  });
 });

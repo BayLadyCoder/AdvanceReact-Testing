@@ -12,10 +12,10 @@ beforeEach(() => {
 });
 
 describe("App", () => {
-  it("Shows a comment box", () => {
+  it("Should show a comment box", () => {
     expect(wrapper.find(CommentBox).length).toEqual(1);
   });
-  it("Shows a comment list", () => {
+  it("Should show a comment list", () => {
     expect(wrapper.find(CommentList).length).toEqual(1);
   });
 });

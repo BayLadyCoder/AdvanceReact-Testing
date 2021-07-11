@@ -18,8 +18,8 @@ const CommentBox = () => {
       <textarea
         onChange={handleChange}
         value={comment}
-        name=""
-        id=""
+        name="comment"
+        id="comment"
         cols="30"
         rows="10"
       />

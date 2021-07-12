@@ -29,4 +29,18 @@ describe("CommentBox", () => {
     // textarea value updated to 'new comment'
     expect(wrapper.find("textarea").prop("value")).toEqual("new comment");
   });
+
+  it("When form is submitted, textarea should be empty", () => {
+    const textarea = wrapper.find("textarea");
+    textarea.simulate("change", { target: { value: "new comment" } });
+    textarea.update();
+    expect(wrapper.find("textarea").prop("value")).toEqual("new comment");
+
+    const form = wrapper.find("form");
+    // simulate submit event
+    form.simulate("submit", { preventDefault: () => {} });
+    form.update();
+    // textarea value updated to be empty
+    expect(wrapper.find("textarea").prop("value")).toEqual("");
+  });
 });

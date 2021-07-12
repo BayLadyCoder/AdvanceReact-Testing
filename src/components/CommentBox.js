@@ -11,7 +11,6 @@ const CommentBox = ({ saveComment }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // TODO: Call an action creator to save the comment
     saveComment(comment);
     setComment("");
   };

@@ -1,13 +1,19 @@
 import React from "react";
 import { mount } from "enzyme";
 import CommentBox from "components/CommentBox";
+import Root from "Root";
 
 let wrapper;
 
 beforeEach(() => {
-  wrapper = mount(<CommentBox />); // every time when use mount(), must unmount() when the test is done
+  wrapper = mount(
+    <Root>
+      <CommentBox />
+    </Root>
+  );
 });
 
+// every time when use mount(), must unmount() when the test is done
 afterEach(() => {
   wrapper.unmount();
 });

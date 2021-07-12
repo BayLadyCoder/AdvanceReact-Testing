@@ -9,7 +9,15 @@ describe("Comments Reducer", () => {
     };
 
     const newState = commentsReducer([], action);
-
     expect(newState).toEqual(["New Comment!"]);
+  });
+
+  it("Should handle action with unknown type", () => {
+    const action = {
+      type: "sdfkeoscosees",
+    };
+
+    const newState = commentsReducer([], action);
+    expect(newState).toEqual([]);
   });
 });

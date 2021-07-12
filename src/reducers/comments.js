@@ -8,7 +8,7 @@ const commentsReducer = (state = [], action) => {
       return [...state, payload];
     case FETCH_COMMENTS:
       const comments = payload.map((comment) => comment.name);
-      return [...state, comments];
+      return [...state, ...comments];
     default:
       return state;
   }

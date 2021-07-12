@@ -14,6 +14,6 @@ export const fetchComments = async () => {
 
   return {
     type: FETCH_COMMENTS,
-    payload: response,
+    payload: response.data,
   };
 };

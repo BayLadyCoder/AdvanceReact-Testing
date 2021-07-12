@@ -1,9 +1,11 @@
 import { Provider } from "react-redux";
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
 import reducers from "reducers";
+import reduxPromise from "redux-promise";
 
 export default ({ children, initialState = {} }) => {
-  return (
-    <Provider store={createStore(reducers, initialState)}>{children}</Provider>
-  );
+  const middleware = applyMiddleware(reduxPromise);
+  const store = createStore(reducers, initialState, middleware);
+
+  return <Provider store={store}>{children}</Provider>;
 };
